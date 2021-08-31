@@ -9,12 +9,16 @@ public class Client {
     public static void main(String[] args) {
 
         try {
-            Socket socket = new Socket("localhost",3232);
+            //ny socket på localhost med port 4444
+            Socket socket = new Socket("localhost",4444);
 
+            // Data ind og ud af serveren
             DataInputStream inputStream = new DataInputStream(socket.getInputStream());
             DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
+
             Scanner s = new Scanner(System.in);
+            //while loop som gør at serveren kan modtage data fra client flere gange
             while(true) {
                 outputStream.writeUTF(s.nextLine());
                 outputStream.flush();
