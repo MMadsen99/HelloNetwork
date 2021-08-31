@@ -1,3 +1,5 @@
+package ServerAndClients;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -26,7 +28,6 @@ public class TimeServer {
         DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
         while(true) {
-
             output.writeUTF(format.format(date) + "\n");
         }
 
