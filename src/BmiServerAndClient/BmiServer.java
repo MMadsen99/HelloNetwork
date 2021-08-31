@@ -26,8 +26,8 @@ public class BmiServer {
             while(true) {
                 String weight = inputStream.readUTF();
                 String height = inputStream.readUTF();
-                System.out.println("weight Data from client: " + weight);
-                System.out.println("height Data from client: " + height);
+                System.out.println("Weight Data from client: " + weight);
+                System.out.println("Height data from client: " + height);
                 bmi = Double.parseDouble(weight) / Math.pow(Double.parseDouble(height),2);
                 outputStream.writeUTF("Your bmi is: " + bmi);
                 outputStream.flush();
