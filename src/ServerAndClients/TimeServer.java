@@ -19,7 +19,7 @@ public class TimeServer {
         Date date = new Date(System.currentTimeMillis());
 
         // her laver jeg en ny serversocket med 3232 som port
-        ServerSocket serverSocket = new ServerSocket(3232);
+        ServerSocket serverSocket = new ServerSocket(4444);
 
         //her venter serveren på en client
         Socket socket = serverSocket.accept();

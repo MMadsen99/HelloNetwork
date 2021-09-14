@@ -3,16 +3,15 @@ package ServerAndClients;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.SyncFailedException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
+public class Client2 {
     public static void main(String[] args) {
 
         try {
             //ny socket på localhost med port 4444
-            Socket socket = new Socket("localhost",4501);
+            Socket socket = new Socket("localhost",4444);
 
             // Data ind og ud af serveren
             DataInputStream inputStream = new DataInputStream(socket.getInputStream());
