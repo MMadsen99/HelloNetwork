@@ -1,36 +1,24 @@
 package ServerAndClients;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.SyncFailedException;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
-    public static void main(String[] args) {
-
-        try {
+    public static void main(String[] args) throws IOException {
             //ny socket på localhost med port 4444
-            Socket socket = new Socket("localhost",4501);
-
+            Socket socket = new Socket("10.200.130.31",4501);
             // Data ind og ud af serveren
-            DataInputStream inputStream = new DataInputStream(socket.getInputStream());
-            DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+            DataInputStream inputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+           // DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+
+        System.out.println("test");
+
+               // String incomingText = inputStream.readUTF();
+                System.out.print(inputStream.readUTF());
+                System.out.print(inputStream.readUTF());
+                System.out.println("vi er her nu");
 
 
-            Scanner s = new Scanner(System.in);
-            //while loop som gør at serveren kan modtage data fra client flere gange
-            while(true) {
-                outputStream.writeUTF(s.nextLine());
-                outputStream.flush();
-                System.out.println(inputStream.readUTF());
-            }
-
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

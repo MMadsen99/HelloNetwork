@@ -69,7 +69,7 @@ public class ChatServer {
 
                 // Keep requesting a name until we get a unique one.
                 while (true) {
-                    out.println("SUBMITNAME");
+                    // out.println("SUBMITNAME");
                     name = in.nextLine();
                     if (name == null) {
                         return;
@@ -101,14 +101,14 @@ public class ChatServer {
                         for (PrintWriter writer : writers) {
 
                             writer.println("MESSAGE " + "Clients connected is " + ": " + names);
-
+                            System.out.println(names);
                         }
                     }
                     for (PrintWriter writer : writers) {
                         System.out.println("Besked er kommet fra " + name + ": " + input);
                         writer.println("MESSAGE " + name + ": " + input);
-                        out.println("Besked er kommet fra " + name + ": " + input);
-                        out.println("Test");
+                      //  out.println("Besked er kommet fra " + name + ": " + input);
+
                     }
                 }
             } catch (Exception e) {

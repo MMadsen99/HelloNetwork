@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ChatClient2 {
+public class ChatClient3 {
     static PrintWriter out;
 
     public static void main(String[] args) throws IOException {
@@ -18,13 +18,14 @@ public class ChatClient2 {
         String message;
 
         System.out.println("Indtast et navn");
-            message = name.nextLine();
-            out.println(message);
+        message = name.nextLine();
+        out.println(message);
 
 
         new Thread(()->{
             try {
                 while (true) {
+
                     System.out.println(in.nextLine());
                 }
             } catch (Exception exception) {
@@ -36,10 +37,10 @@ public class ChatClient2 {
         ).start();
 
         while(true){
-        sendMessage();
+            sendMessage();
         }
 
-}
+    }
     public static void sendMessage(){
         Scanner scanner = new Scanner(System.in);
         //System.out.println("Skriv en besked");
