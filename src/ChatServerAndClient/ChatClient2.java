@@ -10,18 +10,21 @@ public class ChatClient2 {
 
     public static void main(String[] args) throws IOException {
 
+        //laver en ny socket som køre op localhost med port 4502
         System.out.println("Tilslutter til localhost");
         var socket = new Socket("localhost", 4502);
+        //laver nye input streams, data til og fra serveren
         Scanner in = new Scanner(socket.getInputStream());
-        Scanner name = new Scanner(System.in);
         out = new PrintWriter(socket.getOutputStream(), true);
-        String message;
 
+        //brugern skriver et navn som bliver sendt til serveren
+        Scanner name = new Scanner(System.in);
+        String message;
         System.out.println("Indtast et navn");
             message = name.nextLine();
             out.println(message);
 
-
+        //En thread som står og venter på nye beskeder fra andre clienter igennem serveren
         new Thread(()->{
             try {
                 while (true) {
@@ -34,12 +37,12 @@ public class ChatClient2 {
         }
 
         ).start();
-
+        //While loop som kørere igennenm sendMessage metoden, så man kan sende så mange beskeder man ville
         while(true){
         sendMessage();
         }
 
-}
+}   //metode som tager input fra brugeren og sende det til severen
     public static void sendMessage(){
         Scanner scanner = new Scanner(System.in);
         //System.out.println("Skriv en besked");
